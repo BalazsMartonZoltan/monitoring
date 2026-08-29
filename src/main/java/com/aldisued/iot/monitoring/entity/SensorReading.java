@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import java.time.LocalDateTime;
 
 @Table(name = "sensor_readings")
@@ -22,6 +24,10 @@ public class SensorReading {
   @Column(nullable = false)
   private LocalDateTime timestamp;
 
+  @ManyToOne
+  @JoinColumn(name = "sensor_id", nullable = false)
+  private Sensor sensor;
+
   public SensorReading() {
   }
 
@@ -32,7 +38,7 @@ public class SensorReading {
   ) {
     this.value = value;
     this.timestamp = timestamp;
-    //TODO: Task 2
+    this.sensor = sensor;
   }
 
   public Long getId() {
@@ -60,11 +66,10 @@ public class SensorReading {
   }
 
   public Sensor getSensor() {
-    //TODO: Task 2
-    return null;
+    return sensor;
   }
 
   public void setSensor(Sensor sensor) {
-    //TODO: Task 2
+    this.sensor = sensor;
   }
 }
