@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -22,6 +24,7 @@ public class Sensor {
   private String name;
 
   @Column(nullable = false)
+  @Enumerated(EnumType.STRING)
   private SensorType type;
 
   public Sensor() {}
