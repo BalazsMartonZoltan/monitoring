@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 public interface SensorReadingRepository extends JpaRepository<SensorReading, String> {
@@ -21,5 +22,7 @@ public interface SensorReadingRepository extends JpaRepository<SensorReading, St
             @Param("type") SensorType type,
             @Param("from") LocalDateTime from,
             @Param("to") LocalDateTime to);
+
+    List<SensorReading> findBySensor_TypeAndTimestampBetweenOrderByTimestamp(SensorType type, LocalDateTime from, LocalDateTime to);
 
 }
