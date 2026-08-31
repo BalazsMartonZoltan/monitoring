@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class SensorAlreadyExistsException extends RuntimeException {
 
     public SensorAlreadyExistsException(String name) {
-        super("Sensor already exits with name: " + name);
+        super("Sensor already exists with name: " + name);
     }
 }
